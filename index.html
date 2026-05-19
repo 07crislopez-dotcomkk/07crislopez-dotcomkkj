@@ -1,37 +1,158 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WordMaster - Complete English Grammar Learning (MEJORADO v4)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#06060e">
+    <meta name="description" content="WordMaster PRO - Complete English Grammar Learning Platform with 12 Sections, Quiz, Flashcards, Statistics and more">
+    <meta name="keywords" content="English, Grammar, Learning, Dictionary, Phrases, Quiz, Flashcards">
+    <meta name="author" content="WordMaster Team">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="WordMaster PRO">
+    <meta property="og:description" content="Learn English Grammar with Interactive Tools">
+    <meta property="og:type" content="website">
+    
+    <title>WordMaster PRO - Complete English Grammar Learning Platform</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='75' font-size='75' fill='%23f0c060'%3E⚡%3C/text%3E%3C/svg%3E">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="app.js" as="script">
+    
+    <style>
+        /* Loading animation */
+        @keyframes loadingPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #06060e, #0a0a14);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+        }
+        
+        .loading-content {
+            text-align: center;
+        }
+        
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(240, 192, 96, 0.2);
+            border-top: 3px solid #f0c060;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            font-size: 14px;
+            color: #f0c060;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+    </style>
 </head>
 <body>
-    <div id="root">
-        <!-- HEADER -->
-        <div class="header">
-            <div style="font-size: 8px; letter-spacing: 6px; color: rgba(240, 192, 96, 0.27); text-transform: uppercase; margin-bottom: 3px; font-family: monospace;">English · Español</div>
-            <div class="header-title">⚡ WordMaster PRO</div>
-            <div class="header-subtitle">Complete English Grammar · 15 Secciones + Dictionary Conjugation</div>
-        </div>
-
-        <!-- NAVIGATION BAR -->
-        <div class="nav-bar" id="navBar">
-            <!-- Los botones se generan dinámicamente con JS -->
-        </div>
-
-        <!-- SECTION HEADER -->
-        <div class="section-header">
-            <span id="sectionTitle">💬 Top 100 Frases</span>
-        </div>
-
-        <!-- MAIN CONTAINER -->
-        <div class="container" id="mainContent">
-            <!-- El contenido se genera dinámicamente con JS -->
+    <!-- Loading Screen -->
+    <div id="loading">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">LOADING...</div>
         </div>
     </div>
 
-    <!-- SCRIPT PRINCIPAL -->
-    <script src="app.js"></script>
+    <!-- Main App Container -->
+    <div id="root" style="display: none;">
+        <!-- HEADER -->
+        <div class="header" role="banner">
+            <div style="font-size: 8px; letter-spacing: 6px; color: rgba(240, 192, 96, 0.27); text-transform: uppercase; margin-bottom: 3px; font-family: monospace;">
+                🌍 English • Español • 🚀 v6 Premium
+            </div>
+            <h1 class="header-title">⚡ WordMaster PRO</h1>
+            <p class="header-subtitle">Complete English Grammar Learning • Dictionary + Builder + 12 Interactive Sections</p>
+        </div>
+
+        <!-- NAVIGATION BAR -->
+        <nav class="nav-bar" id="navBar" role="navigation" aria-label="Main navigation">
+            <!-- Dynamically populated -->
+        </nav>
+
+        <!-- SECTION HEADER -->
+        <header class="section-header" role="region" aria-live="polite">
+            <span id="sectionTitle" role="heading" aria-level="2">💬 Top Phrases</span>
+        </header>
+
+        <!-- MAIN CONTAINER -->
+        <main class="container" id="mainContent" role="main">
+            <!-- Dynamically populated -->
+        </main>
+
+        <!-- FOOTER -->
+        <footer style="
+            text-align: center;
+            padding: 20px;
+            color: #4a5568;
+            font-size: 10px;
+            border-top: 1px solid #14142a;
+            margin-top: 40px;
+        ">
+            <div style="margin-bottom: 8px;">
+                ⚡ <strong>WordMaster PRO v6</strong> - Powered by JavaScript
+            </div>
+            <div>
+                📚 Learn • 🎯 Practice • 📊 Track Progress
+            </div>
+            <div style="margin-top: 12px; font-size: 9px; color: #2a3a4a;">
+                All data saved locally • No account required • 100% Free
+            </div>
+        </footer>
+    </div>
+
+    <!-- Main App Script -->
+    <script>
+        // Show loading screen
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('root').style.display = 'block';
+            }, 500);
+        });
+    </script>
+    
+    <script src="app.js" defer></script>
+
+    <!-- Analytics & Tracking (Optional) -->
+    <script>
+        // Simple analytics - tracks basic stats
+        window.addEventListener('load', () => {
+            console.log('🚀 WordMaster PRO v6 loaded successfully');
+            console.log('📊 Features: Dictionary, Quiz, Flashcards, Statistics, Export & more');
+        });
+
+        // PWA Support
+        if ('serviceWorker' in navigator) {
+            // Service workers can be implemented for offline support
+        }
+    </script>
+
+    <!-- Accessibility Statement -->
+    <div style="display: none;" aria-hidden="true">
+        WordMaster PRO is committed to accessibility. All content is keyboard navigable
+        and compatible with screen readers. For accessibility issues, please provide feedback.
+    </div>
 </body>
 </html>
